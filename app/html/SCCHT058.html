@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>gitplechat_lifeplanet</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!-- 파비콘 -->
+	<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="../css/gktplechat_lifeplanet.css">
+    <link rel="stylesheet" href="https://devlifeplanet.enterprise.gitple.io/styles.a37ae2ce673b085575e7.css">
+    
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+<style>
+body {padding:20px;}
+/* div  {padding-top:10px; margin-bottom:20px;} */
+</style>
+
+</head>
+<body>
+<style>
+/* user_agree_chkbox */
+.user_agree_chkbox {padding:12px 0;}
+.user_agree_chkbox div {display:flex; align-items:center; gap:7px;}
+.user_agree_chkbox label {width:16px; height:16px; line-height:1; margin:0; padding:0;}
+.user_agree_chkbox input {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
+.user_agree_chkbox input + span.checkmark {display:inline-block; position:relative; width:16px; height:16px; border:1px solid #ddd; border-radius:2px; background-color:#fff;}
+.user_agree_chkbox input:checked + span.checkmark {background-color:#1BB177; border-color:transparent;}
+.user_agree_chkbox input:checked + span.checkmark::before {content:""; display:block; position:absolute; bottom:40%; left:50%; width:10px; height:5px; border-width:0 0 2px 2px; border-style:solid; border-color:#fff; transform:translateX(-50%) rotate(-45deg);}
+.user_agree_chkbox span.txt {display:block; color:#000000; font-size:14px; line-height:16.41px;}
+.user_agree_chkbox span.txt strong {display:inline-block; color:#E52B20;}
+.user_agree_chkbox button {width:24px; height:24px; margin:0; padding:0; border:0; border-radius:2px; background-color:transparent;}
+.user_agree_chkbox button img {width:100%;}
+/* // user_agree_chkbox */
+</style>
+
+    <div class="user_agree_chkbox d-flex align-items-center my-3">
+        <div>
+            <label>
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <span class="txt">개인정보 제공 약관 동의<strong>[필수]</strong></span>
+        </div>
+        <button type="button" class="ml-auto"><img src="../images/icon/icon_arrow_down.png" alt="화살표"></button>
+    </div>
+    <!-- // user_agree_chkbox -->
+
+</body>
+</html>
