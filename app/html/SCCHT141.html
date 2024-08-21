@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>gitplechat_lifeplanet</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!-- 파비콘 -->
+	<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="../css/gktplechat_lifeplanet.css">
+    <link rel="stylesheet" href="https://devlifeplanet.enterprise.gitple.io/styles.a37ae2ce673b085575e7.css">
+    
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+<style>
+body {padding:20px;}
+/* div  {padding-top:10px; margin-bottom:20px;} */
+</style>
+
+</head>
+<body>
+
+<style>
+.nav-tabs_wrap {position:relative; padding:0 43px; background-color:#fff;}
+.nav-tabs_wrap::before {content:""; position:absolute; bottom:0; left:0; width:100%; border-bottom:1px solid #dee2e6;}
+.nav-tabs_wrap ul {display:block !important; margin:0; padding:0 !important; white-space:nowrap; overflow:hidden;}
+.nav-tabs_wrap ul li {display:inline-block;}
+.nav-tabs_wrap ul li a {display:inline-block; position:relative; height:43px; padding:16px 24px 8px; color:#343A40; font-size:16px; font-weight:bold; letter-spacing:-0.05em;}
+.nav-tabs_wrap ul li a.active {color:#4D91F9;}
+.nav-tabs_wrap ul li a.active span {color:inherit;}
+.nav-tabs_wrap ul li a.active::before {content:""; display:block; position:absolute; bottom:0; left:0; width:100%; height:2px; background-color:#4D91F9;;}
+.nav-tabs_wrap ul li a span {font-weight:bold;}
+.nav-tabs_wrap button.btn_arrow {position:absolute; top:0; width:43px; height:43px; border:0; padding:0; border-style:solid; border-color:#ddd; background-color:#fff; color:#fff; outline:0;}
+.nav-tabs_wrap button.btn_arrow.prev {left:0; border-width:0 1px 1px 0;}
+.nav-tabs_wrap button.btn_arrow.next {right:0; border-width:0 0 1px 1px;}
+.nav-tabs_wrap button.btn_arrow img {width:24px; height:24px; line-height:1;}
+</style>
+<div class="nav-tabs_wrap">
+	<button type="button" class="btn_arrow prev"><span><img src="../images/icon/ChevronLeft.png" alt="이전"></span></button>
+	<ul>
+		<li>
+			<a href="#g" class="active">
+				<span class="txt">기본정보</span>
+				<!-- <span class="count">(2)</span> -->
+			</a>
+		</li>
+		<li>
+			<a href="#g">
+				<span class="txt">상담이력</span>
+				<!-- <span class="count">(2)</span> -->
+			</a>
+		</li>
+		<li>
+			<a href="#g">
+				<span class="txt">계약정보</span>
+				<!-- <span class="count">(2)</span> -->
+			</a>
+		</li>
+		<li>
+			<a href="#g">
+				<span class="txt">바른보장</span>
+				<!-- <span class="count">(2)</span> -->
+			</a>
+		</li>
+		<li>
+			<a href="#g">
+				<span class="txt">설계이력</span>
+				<!-- <span class="count">(2)</span> -->
+			</a>
+		</li>
+		<li>
+			<a href="#g">
+				<span class="txt">연락처</span>
+				<span class="count">(2)</span>
+			</a>
+		</li>
+	</ul>
+	<button type="button" class="btn_arrow next"><span><img src="../images/icon/ChevronRight.png" alt="다음"></span></button>
+</div>
+<!-- // nav-tabs_wrap -->
+
+<br /><br />
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const prevButton = document.querySelector('.btn_arrow.prev');
+    const nextButton = document.querySelector('.btn_arrow.next');
+    const tabs = document.querySelectorAll('.nav-tabs_wrap ul li a');
+    const tabList = document.querySelector('.nav-tabs_wrap ul');
+
+    // Function to scroll to the active tab
+    function scrollToActiveTab(tab) {
+        const tabRect = tab.getBoundingClientRect();
+        const containerRect = tabList.getBoundingClientRect();
+
+        if (tabRect.left < containerRect.left || tabRect.right > containerRect.right) {
+            tab.scrollIntoView({ behavior: "smooth", inline: "center" });
+        }
+    }
+
+    // Next button click event
+    nextButton.addEventListener('click', function () {
+        let currentIndex = -1;
+        tabs.forEach((tab, index) => {
+            if (tab.classList.contains('active')) {
+                currentIndex = index;
+                tab.classList.remove('active');
+            }
+        });
+
+        const nextIndex = (currentIndex + 1) % tabs.length;
+        tabs[nextIndex].classList.add('active');
+        scrollToActiveTab(tabs[nextIndex]);
+    });
+
+    // Prev button click event
+    prevButton.addEventListener('click', function () {
+        let currentIndex = -1;
+        tabs.forEach((tab, index) => {
+            if (tab.classList.contains('active')) {
+                currentIndex = index;
+                tab.classList.remove('active');
+            }
+        });
+
+        const prevIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        tabs[prevIndex].classList.add('active');
+        scrollToActiveTab(tabs[prevIndex]);
+    });
+
+    // Each tab click event
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            tabs.forEach(t => t.classList.remove('active'));
+
+            tab.classList.add('active');
+            scrollToActiveTab(tab);
+        });
+    });
+});
+</script>
+
+</body>
+</html>
