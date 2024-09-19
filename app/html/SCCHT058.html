@@ -10,47 +10,99 @@
 	<![endif]-->
 	
 	<!-- 파비콘 -->
-	<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
-	<link rel="stylesheet" href="../css/gktplechat_lifeplanet.css">
-    <link rel="stylesheet" href="https://devlifeplanet.enterprise.gitple.io/styles.a37ae2ce673b085575e7.css">
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico"> -->
+	<!-- <link rel="stylesheet" href="../css/gktplechat_lifeplanet.css"> -->
+    <!-- <link rel="stylesheet" href="https://devlifeplanet.enterprise.gitple.io/styles.a37ae2ce673b085575e7.css"> -->
     
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
-<style>
-body {padding:20px;}
-/* div  {padding-top:10px; margin-bottom:20px;} */
-</style>
-
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script> -->
 </head>
 <body>
+
 <style>
-/* user_agree_chkbox */
-.user_agree_chkbox {padding:12px 0;}
-.user_agree_chkbox div {display:flex; align-items:center; gap:7px;}
-.user_agree_chkbox label {width:16px; height:16px; line-height:1; margin:0; padding:0;}
-.user_agree_chkbox input {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
-.user_agree_chkbox input + span.checkmark {display:inline-block; position:relative; width:16px; height:16px; border:1px solid #ddd; border-radius:2px; background-color:#fff;}
-.user_agree_chkbox input:checked + span.checkmark {background-color:#1BB177; border-color:transparent;}
-.user_agree_chkbox input:checked + span.checkmark::before {content:""; display:block; position:absolute; bottom:40%; left:50%; width:10px; height:5px; border-width:0 0 2px 2px; border-style:solid; border-color:#fff; transform:translateX(-50%) rotate(-45deg);}
-.user_agree_chkbox span.txt {display:block; color:#000000; font-size:14px; line-height:16.41px;}
-.user_agree_chkbox span.txt strong {display:inline-block; color:#E52B20;}
-.user_agree_chkbox button {width:24px; height:24px; margin:0; padding:0; border:0; border-radius:2px; background-color:transparent;}
-.user_agree_chkbox button img {width:100%;}
-/* // user_agree_chkbox */
+
+* {box-sizing:border-box; margin:0; padding:0; border:0; background:none; list-style:none;}
+/* SCCHT058 */
+.user_info_input_wrap {display:flex; flex-direction:column; gap:16px 0; width:100%; max-width:620px; padding:0 16px; /* border:1px solid #eee; border-radius:12px; */ background-color:#fff; /* position:fixed; top:50%; left:50%; width:100%; transform:translate(-50%,-50%); box-shadow:0 8px 16px rgba(0,0,0,0.1); */}
+
+.user_info_input_wrap .user_info_input_header div.title {display:flex; align-items:center; height:50px;}
+.user_info_input_wrap .user_info_input_header strong {display:block; font-size:16px; line-height:19px; font-weight:bold;}
+
+.user_info_input_wrap .user_info_input_body .user_input_form_wrap {display:flex; flex-direction:column; gap:16px; width:100%;}
+.user_info_input_wrap .user_info_input_body .user_input_form_wrap div.item {}
+.user_info_input_wrap .user_info_input_body .user_input_form_wrap div.item span.tit {display:block; color:#000; font-size:14px; line-height:16px; font-family:'Roboto';}
+.user_info_input_wrap .user_info_input_body .user_input_form_wrap div.item div {margin-top:4px;}
+.user_info_input_wrap .user_info_input_body .user_input_form_wrap div.item div input {width:100%; height:45px; padding:0 10px; border:1px solid #ddd; border-radius:4px; overflow:hidden;}
+.user_info_input_wrap .user_info_input_body .user_input_form_wrap div.item div input {outline:none;}
+
+.user_info_input_wrap .user_info_input_body .user_agree_chkbox {display:flex; justify-content:space-between; align-items:center; padding:8px 0;}  
+.user_info_input_wrap .user_info_input_body .user_agree_chkbox div {display:flex; align-items:center; gap:7px;}
+.user_info_input_wrap .user_info_input_body .user_agree_chkbox label {width:16px; height:16px; line-height:1; margin:0; padding:0;}
+.user_info_input_wrap .user_info_input_body .user_agree_chkbox input {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
+.user_info_input_wrap .user_info_input_body .user_agree_chkbox input + span.checkmark {display:inline-block; position:relative; width:16px; height:16px; border:1px solid #ddd; border-radius:2px; background-color:#fff;}
+.user_info_input_wrap .user_info_input_body .user_agree_chkbox input:checked + span.checkmark {background-color:#1BB177; border-color:transparent;}
+.user_info_input_wrap .user_info_input_body .user_agree_chkbox input:checked + span.checkmark::before {content:""; display:block; position:absolute; bottom:40%; left:50%; width:50%; height:22%; border-width:0 0 2px 2px; border-style:solid; border-color:#fff; transform:translateX(-50%) rotate(-45deg);}
+.user_info_input_wrap .user_info_input_body .user_agree_chkbox span.txt {display:block; color:#000000; font-size:14px; line-height:16px;}
+.user_info_input_wrap .user_info_input_body .user_agree_chkbox span.txt strong {display:inline-block; color:#E52B20; font-weight:inherit;}
+.user_info_input_wrap .user_info_input_body .user_agree_chkbox button {width:24px; height:24px; margin:0; padding:0; border:0; border-radius:2px; background-color:transparent; cursor:pointer;}
+.user_info_input_wrap .user_info_input_body .user_agree_chkbox button img {width:100%;}
+
+.user_info_input_wrap .user_info_input_footer {padding:12px; text-align:center;}
+.user_info_input_wrap .user_info_input_footer .btn_submit {width:240px; height:52px; border-radius:99px; background-color:#1BB177; line-height:1; cursor:pointer;}
+.user_info_input_wrap .user_info_input_footer .btn_submit span {color:#fff; font-size:16px; font-weight:bold; font-family:'Roboto';}
+.user_info_input_wrap .user_info_input_footer .btn_submit:disabled {opacity:0.5;}
+/* // SCCHT058 */
 </style>
 
-    <div class="user_agree_chkbox d-flex align-items-center my-3">
-        <div>
-            <label>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <span class="txt">개인정보 제공 약관 동의<strong>[필수]</strong></span>
+    <div class="user_info_input_wrap">
+        <div class="user_info_input_header">
+            <div class="title">
+                <strong>정보를 입력해주세요</strong>
+            </div>
         </div>
-        <button type="button" class="ml-auto"><img src="../images/icon/icon_arrow_down.png" alt="화살표"></button>
+        <!-- // user_info_input_header -->
+
+        <div class="user_info_input_body">
+            <div class="user_input_form_wrap">
+                <div class="item">
+                    <span class="tit">이름</span>
+                    <div>
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="item">
+                    <span class="tit">전화번호 끝 4자리</span>
+                    <div>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="user_agree_chkbox">
+                    <div>
+                        <label>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <span class="txt">개인정보 제공 약관 동의<strong>(필수)</strong></span>
+                    </div>
+                    <button type="button" class="ml-auto"><img src="../images/icon/icon_arrow_down.png" alt="화살표"></button>
+                </div>
+                <!-- // user_agree_chkbox -->
+            </div>
+            <!-- // user_input_form_wrap -->
+        </div>
+        <!-- // user_info_input_body -->
+
+        <div class="user_info_input_footer">
+            <button type="button" class="btn_submit" disabled><span>정보 전송</span></button>
+        </div>
+        <!-- // user_info_input_footer -->
+        
     </div>
-    <!-- // user_agree_chkbox -->
+    <!-- // user_info_input_wrap -->
+
+    
 
 </body>
 </html>
