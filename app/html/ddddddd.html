@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>gitplechat_lifeplanet</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!-- 파비콘 -->
+	<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="../css/gktplechat_lifeplanet.css">
+    <link rel="stylesheet" href="https://devlifeplanet.enterprise.gitple.io/styles.a37ae2ce673b085575e7.css">
+    
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+<style>
+body {padding:20px;}
+/* div  {padding-top:10px; margin-bottom:20px;} */
+</style>
+
+</head>
+<body>
+
+
+<!-- 바로가기 버튼 -->
+<style>
+	.room_quick_link_wrap {display:flex;}
+	.room_quick_link_wrap div.list {display:flex; }
+	.room_quick_link_wrap div.list div.item {}
+	.room_quick_link_wrap div.list div.item button {display:inline-block; width:auto; border:0 none; background:none;}
+	.room_quick_link_wrap div.list div.item button span {display:inline-block; width:21px; height:21px;}
+	.room_quick_link_wrap div.list div.item button span img {display:block; width:21px; height:21px;}
+	.room_quick_link_wrap div.list div.item button span svg {display:block; width:21px; height:21px;}
+	.room_quick_link_wrap div.list div.item button:hover svg path,
+	.room_quick_link_wrap div.list div.item button:hover svg rect {fill: #4db1a7;}
+</style>
+<div class="room_quick_link_wrap">
+	<div class="list">
+		<div class="item">
+			<button type="button">
+				<span>
+					<svg id="ico_coaching_note_01" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<path id="path" d="M6.8,21a1,1,0,0,1-.994-1.112l.587-5.222L2.85,10.786a1,1,0,0,1,.537-1.654L8.535,8.075l2.6-4.569a1.04,1.04,0,0,1,1.738,0l2.6,4.569,5.148,1.057a1,1,0,0,1,.537,1.654l-3.544,3.88.587,5.222a1,1,0,0,1-1.408,1.022L12,18.739,7.214,20.91A1,1,0,0,1,6.8,21M5.514,10.737l2.663,2.914a1,1,0,0,1,.256.786l-.441,3.924,3.595-1.631a1,1,0,0,1,.826,0l3.595,1.631-.44-3.924a1,1,0,0,1,.256-.786l2.662-2.914-3.868-.794a1,1,0,0,1-.667-.485L12,6.024,10.05,9.458a1,1,0,0,1-.668.485Z" fill="#010000"/>
+						<!-- <rect id="bg" width="24" height="24" fill="none"/> -->
+					  </svg>
+				</span>
+			</button>
+		</div>
+		<div class="item">
+			<button>
+				<span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<g id="ico_coaching_note_01" transform="translate(-1129 -568)">
+							<!-- <rect id="bg" width="24" height="24" transform="translate(1129 568)" fill="none"/> -->
+							<path id="path1" d="M10.746,16.162h7v1.75h-7Zm0-3.5h7v1.75h-7ZM16,3.913H9a1.756,1.756,0,0,0-1.75,1.75v14a1.747,1.747,0,0,0,1.741,1.75H19.5a1.755,1.755,0,0,0,1.75-1.75V9.163Zm3.5,15.749H9v-14h6.125v4.375H19.5Z" transform="translate(1129 568)"/>
+							<path id="path2" d="M5.351,2.045h-2.4l.291,8.228H5.351l.291-8.228Z" transform="translate(1129 568)"/>
+							<rect id="quad1" width="2.105" height="2.105" transform="translate(1132.246 579.498)"/>
+						</g>
+					</svg>
+				</span>
+			</button>
+		</div>
+	</div>
+</div>
+<!-- // 바로가기 버튼 -->
+
+
+<!-- 코칭 노트 버튼 작업중 -->
+<style>
+.chat_coachingnote_wrap {margin-bottom:16px; padding:7px 10px; background-color:#FEEED3;}
+.chat_coachingnote_wrap div.txt_wrap {display:flex; justify-content:space-between; align-items:center; color:#6F7277; font-size:14px; line-height:20px; font-weight:500;}
+.chat_coachingnote_wrap div.txt_wrap p {margin:0;}
+.chat_coachingnote_wrap div.btn_group {display:flex; justify-content:flex-end; gap:0 10px; margin-top:8px;}
+.chat_coachingnote_wrap div.btn_group button {display:inline-flex; justify-content:center; align-items:center; gap:0 4px; width:106px; height:33px; border:1px solid #CED4DA; border-radius:4px; background:transparent; outline:none;}
+.chat_coachingnote_wrap div.btn_group button span {display:inline-block;}
+.chat_coachingnote_wrap div.btn_group button span.ico {width:21px; height:21px;}
+.chat_coachingnote_wrap div.btn_group button span.ico img {width:100%; height:auto;}
+.chat_coachingnote_wrap div.btn_group button span.txt {color:#000; font-size:13px; line-height:21px;}
+</style>
+<div class="chat_coachingnote_wrap">
+	<div class="txt_wrap">
+		<p>상담노트, 코칭노트가 비어 있습니다.</p>
+		<p>
+			<span>CSAT : </span>
+			<span>5점</span>
+		</p>
+	</div>
+
+	<div class="btn_group">
+		<button type="button">
+			<span class="ico">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+					<g id="ico_coaching_note_01" transform="translate(-1129 -568)">
+						<!-- <rect id="bg" width="24" height="24" transform="translate(1129 568)" fill="none"/> -->
+						<path id="path1" d="M10.746,16.162h7v1.75h-7Zm0-3.5h7v1.75h-7ZM16,3.913H9a1.756,1.756,0,0,0-1.75,1.75v14a1.747,1.747,0,0,0,1.741,1.75H19.5a1.755,1.755,0,0,0,1.75-1.75V9.163Zm3.5,15.749H9v-14h6.125v4.375H19.5Z" transform="translate(1129 568)"/>
+						<path id="path2" d="M5.351,2.045h-2.4l.291,8.228H5.351l.291-8.228Z" transform="translate(1129 568)"/>
+						<rect id="quad1" width="2.105" height="2.105" transform="translate(1132.246 579.498)"/>
+					</g>
+				</svg>
+			</span>
+			<span class="txt">코칭 노트</span></button>
+		<button type="button">
+			<span class="ico">
+				<i aria-hidden="true" class="icon-memo icon-memo__modify header-menu header-menu-note"></i>
+			</span>
+			<span class="txt">상담 노트</span>
+		</button>
+	</div>
+</div>
+<!-- // 코칭 노트 버튼-->
+
+<br /><br />
+저장된 답변 미리보기 버튼
+<!-- 저장된 답변 미리 보기 아이콘 -->
+ <style>
+.ico_svg {}
+.ico_svg:hover path {fill:#4db1a7;}
+ </style>
+<i class="fa ico_svg">
+	<svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M7 9.25C7.9665 9.25 8.75 8.4665 8.75 7.5C8.75 6.5335 7.9665 5.75 7 5.75C6.0335 5.75 5.25 6.5335 5.25 7.5C5.25 8.4665 6.0335 9.25 7 9.25Z" fill="#343A40"></path>
+		<path d="M13.4214 7.02422C12.6979 5.90531 11.7592 4.95484 10.707 4.27535C9.54296 3.52285 8.25781 3.125 6.9907 3.125C5.82804 3.125 4.6848 3.45723 3.59269 4.11238C2.47898 4.78039 1.47 5.75629 0.593629 7.01273C0.494695 7.15473 0.440208 7.32294 0.437092 7.49597C0.433976 7.66901 0.482372 7.83906 0.576129 7.98453C1.29828 9.11465 2.22769 10.0665 3.26347 10.7367C4.42968 11.4922 5.68476 11.875 6.9907 11.875C8.26793 11.875 9.55582 11.4804 10.7149 10.7342C11.7666 10.0569 12.7034 9.10289 13.4241 7.97469C13.5147 7.8326 13.5625 7.66753 13.562 7.49905C13.5616 7.33058 13.5127 7.16578 13.4214 7.02422ZM7 10.125C6.48082 10.125 5.9733 9.97105 5.54162 9.68261C5.10994 9.39417 4.77349 8.9842 4.57481 8.50454C4.37613 8.02489 4.32415 7.49709 4.42543 6.98789C4.52672 6.47869 4.77673 6.01096 5.14384 5.64384C5.51095 5.27673 5.97868 5.02673 6.48788 4.92544C6.99708 4.82415 7.52488 4.87614 8.00454 5.07482C8.4842 5.2735 8.89417 5.60995 9.1826 6.04163C9.47104 6.47331 9.625 6.98082 9.625 7.5C9.6242 8.19595 9.34738 8.86317 8.85527 9.35528C8.36316 9.84739 7.69594 10.1242 7 10.125Z" fill="#343A40"></path>
+	</svg>
+</i>
+<!-- // 저장된 답변 미리 보기 아이콘 -->
+
+<style>
+	.ico_svg {}
+	.ico_svg:hover path {fill:#4db1a7;}
+	.ico_svg:hover circle {fill:#4db1a7;}
+	.ico_svg:hover rect {fill:#4db1a7;}
+</style>
+<i class="fa ico_svg">
+
+<svg id="ico_coaching_chat_02" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<!-- <rect id="quad1" width="24" height="24" fill="none"/> -->
+	<path id="path1" d="M5.351,2.045h-2.4l.291,8.228H5.351l.291-8.228Z"/>
+	<rect id="quad2" width="2.105" height="2.105" transform="translate(3.246 11.498)"/>
+	<path id="path2" d="M17.246,20a1.9,1.9,0,0,1-.76-.15,3.475,3.475,0,0,1-1.71-2.38,5.853,5.853,0,0,0-2.365-2.981l-.025-.019-.01-.008a7.582,7.582,0,0,1-2.31-2.522A6.264,6.264,0,0,1,9.246,9a5,5,0,1,1,10,0h2a6.92,6.92,0,0,0-7-7,6.92,6.92,0,0,0-7,7,8.278,8.278,0,0,0,1.07,3.9,9.533,9.533,0,0,0,2.85,3.15,4.028,4.028,0,0,1,1.71,2.05,5.443,5.443,0,0,0,2.73,3.55A4,4,0,0,0,21.246,18h-2a2.006,2.006,0,0,1-2,2Z" fill-rule="evenodd"/>
+	<circle id="circle" cx="2.502" cy="2.502" r="2.502" transform="translate(11.741 6.504)"/>
+  </svg>
+</i>
+
+
+<i class="ico_svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<g id="ico_coaching_note_01" transform="translate(-1129 -568)">
+		<!-- <rect id="bg" width="24" height="24" transform="translate(1129 568)" fill="none"/> -->
+		<path id="path1" d="M10.746,16.162h7v1.75h-7Zm0-3.5h7v1.75h-7ZM16,3.913H9a1.756,1.756,0,0,0-1.75,1.75v14a1.747,1.747,0,0,0,1.741,1.75H19.5a1.755,1.755,0,0,0,1.75-1.75V9.163Zm3.5,15.749H9v-14h6.125v4.375H19.5Z" transform="translate(1129 568)"/>
+		<path id="path2" d="M5.351,2.045h-2.4l.291,8.228H5.351l.291-8.228Z" transform="translate(1129 568)"/>
+		<rect id="quad1" width="2.105" height="2.105" transform="translate(1132.246 579.498)"/>
+	</g>
+</svg>
+</i>
+
+코칭노트 버튼<br />
+<button class="btn btn-default pull-right session-note-btn align-items-center d-flex">
+	<span class="ico">
+		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+			<g id="ico_coaching_note_01" transform="translate(-1129 -568)">
+				<!-- <rect id="bg" width="24" height="24" transform="translate(1129 568)" fill="none"/> -->
+				<path id="path1" d="M10.746,16.162h7v1.75h-7Zm0-3.5h7v1.75h-7ZM16,3.913H9a1.756,1.756,0,0,0-1.75,1.75v14a1.747,1.747,0,0,0,1.741,1.75H19.5a1.755,1.755,0,0,0,1.75-1.75V9.163Zm3.5,15.749H9v-14h6.125v4.375H19.5Z" transform="translate(1129 568)"></path>
+				<path id="path2" d="M5.351,2.045h-2.4l.291,8.228H5.351l.291-8.228Z" transform="translate(1129 568)"></path>
+				<rect id="quad1" width="2.105" height="2.105" transform="translate(1132.246 579.498)"></rect>
+			</g>
+		</svg>
+	</span>
+	<span class="txt ml-1">코칭 노트</span>
+</button>
+
+</body>
+</html>
