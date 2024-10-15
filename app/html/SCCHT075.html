@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>gitplechat_lifeplanet</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!-- 파비콘 -->
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico"> -->
+	<link rel="stylesheet" href="../css/gktplechat_lifeplanet.css">
+    <!-- <link rel="stylesheet" href="https://devlifeplanet.enterprise.gitple.io/styles.a37ae2ce673b085575e7.css"> -->
+    
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script> -->
+<style>
+
+* {box-sizing:border-box; margin:0; padding:0; border:0; background:none; list-style:none;}
+body {}
+</style>
+</head>
+<body>
+
+<style>
+/* 대시보드 틀 */
+.dashboard_wrap {display:flex; flex-wrap:wrap; gap:20px; min-width:1000px;}
+.dashboard_wrap .dashboard_box {width:calc(50% - 10px);}
+/* // 대시보드 틀 */
+
+/* 통계 순위 */
+.dashboard_order_list_wrap {height:464px; padding:18px; box-shadow:0 0 8px rgba(0,0,0,0.12); background-color:#fff;}
+.dashboard_order_list_wrap div.tit {}
+.dashboard_order_list_wrap div.tit strong {display:block; color:#343A40; font-size:20px; line-height:24px; font-weight:700;}
+.dashboard_order_list_wrap div.list_wrap {margin-top:20px;}
+.dashboard_order_list_wrap div.list_wrap div.list-head,
+.dashboard_order_list_wrap div.list_wrap ol.list li.list-item {display:flex; justify-content:space-between; gap:0 12px}
+.dashboard_order_list_wrap div.list_wrap div.list-head {}
+.dashboard_order_list_wrap div.list_wrap div.list-head span {color:#343A40; font-size:16px; line-height:24px; font-weight:400;}
+.dashboard_order_list_wrap div.list_wrap ol.list {padding:0;}
+
+.dashboard_order_list_wrap div.list_wrap span.no {width:24px; min-width:24px;}
+.dashboard_order_list_wrap div.list_wrap span.tit {flex:1;}
+.dashboard_order_list_wrap div.list_wrap ol.list li {margin-top:12px;}
+.dashboard_order_list_wrap div.list_wrap ol.list span {color:#343A40; font-size:16px; line-height:24px; font-weight:bold; font-family:'Apple SD Gothic Neo', 'Noto Sans KR';}
+/* // 통계 순위 */
+
+/* 실시간 상담, 상담 처리 현황 */
+.dashboard_chat_wrap {display:flex; justify-content:space-between; width:100%; background-color:#F0F3F4;}
+.dashboard_chat {display:flex; flex-direction:column; gap:12px 0; width:calc(50% - 10px); padding:18px 18px 7px; background-color:#fff; box-shadow:0 0 8px rgba(0,0,0,0.12);}
+.dashboard_chat hr {margin:0; border-width:1.5px; border-color:#CBCBCB;}
+.dashboard_chat div.tit strong {display:block; color:#343A40; font-size:20px; line-height:24px; font-weight:700;}
+.dashboard_chat ul.list {margin:0; padding:0;}
+.dashboard_chat ul.list li {display:flex; justify-content:space-between; gap:0 12px; width:100%;}
+.dashboard_chat ul.list li + li {margin-top:12px;}
+.dashboard_chat ul.list li span {display:block; position:relative; color:#343A40; font-size:16px; line-height:24px; font-weight:700;}
+.dashboard_chat ul.list li span.color {display:inline-flex; align-items:center;}
+.dashboard_chat ul.list li span.color:before {content:""; display:block; width:12px; height:12px; border-radius:100%; background-color:#ff6600;}
+.dashboard_chat ul.list li span.color.c_busy:before {background-color:#FFCD00;}
+.dashboard_chat ul.list li span.color.c_apricot:before {background-color:#F19035;}
+.dashboard_chat ul.list li span.color.c_online:before {background-color:#7ED321;}
+.dashboard_chat ul.list li span.color.c_red:before {background-color:#E52B20;}
+.dashboard_chat ul.list li span.color.c_lightblue:before {background-color:#339AF0;}
+.dashboard_chat ul.list li span.color.c_dark:before {background-color:#343A40;}
+.dashboard_chat ul.list li span.color.c_green:before {background-color:#1BB177;}
+.dashboard_chat ul.list li span.tit {flex:1;}
+.dashboard_chat .total {display:flex; flex-direction:column; gap:8px 0; width:100%; color:#343A40; font-size:16px; line-height:1.25em; font-weight:700;}
+.dashboard_chat .total div {display:flex; justify-content:space-between; padding:4px 0;}
+/* // 실시간 상담, 상담 처리 현황 */
+
+
+/* 상담사 상태 */
+.dashboard_state_wrap {height:100%; padding:18px 18px 0 18px; background-color:#fff; box-shadow:0 0 8px rgba(0,0,0,0.12);}
+.dashboard_state_wrap div.tit strong {display:block; color:#343A40; font-size:20px; line-height:24px; font-weight:700;}
+
+.dashboard_state_wrap .state_divide {display:flex; justify-content:space-between; height:246px; margin-top:20px; overflow-y:auto;}
+.dashboard_state_wrap .state_divide div.item {width:calc(33.3% - 8px);}
+.dashboard_state_wrap .state_divide div.item .state_tit_wrap span.status-name,
+.dashboard_state_wrap .state_divide div.item .state_tit_wrap strong {display:block;}
+.dashboard_state_wrap .state_divide div.item .state_tit_wrap span.status-name {height:20px; font-size:16px; line-height:20px; font-weight:400; font-family:'Apple SD Gothic Neo'; overflow:hidden;}
+.dashboard_state_wrap .state_divide div.item .state_tit_wrap strong {display:flex; align-items:end; height:29px; margin-top:16px; color:#343A40; font-size:24px; line-height:24px;}
+.dashboard_state_wrap .state_divide div.item .state_tit_wrap strong span.status-count {font-size:36px; line-height:28.8px;}
+
+.dashboard_state_wrap .state_divide div.item .status-count.online {color:#7ED321;}
+.dashboard_state_wrap .state_divide div.item .status-count.offline {color:#747474;}
+.dashboard_state_wrap .state_divide div.item .status-count.busy {color:#FFCD00;}
+.dashboard_state_wrap .state_divide ul {display:flex; flex-direction:column; gap:8px 0; margin:0; padding:0;}
+.dashboard_state_wrap .state_divide ul li {display:flex; align-items:center; gap:0 8px;}
+.dashboard_state_wrap .state_divide ul li span.ico {display:inline-block; position:relative; width:20px; height:20px; line-height:1em;}
+.dashboard_state_wrap .state_divide ul li span.ico::before {content:""; display:block; position:absolute; right:0; bottom:0; width:8px; height:8px; border-radius:100%; background-color:#ff6600;}
+.dashboard_state_wrap .state_divide ul li span.ico img {width:20px; height:20px;}
+.dashboard_state_wrap .state_divide ul li span.state.c_busy {}
+.dashboard_state_wrap .state_divide ul li span.name {flex:1; color:#343A40; font-size:16px; line-height:20px; font-weight:400; font-family:'Apple SD Gothic Neo', 'Noto Sans KR';}
+
+.dashboard_state_wrap .state_divide div.user_list_wrap {margin-top:16px;}
+.dashboard_state_wrap .state_divide div.user_list_wrap div span.status-name,
+.dashboard_state_wrap .state_divide div.user_list_wrap div strong.status-count {display:inline-block; height:20px; font-size:16px; line-height:20px; font-weight:400;}
+.dashboard_state_wrap .state_divide ul.user_list {margin-top:8px;}
+.dashboard_state_wrap .state_divide ul.user_list span.ico.online::before {background-color:#7ED321;}
+.dashboard_state_wrap .state_divide ul.user_list span.ico.busy::before {background-color:#FFCD00;}
+.dashboard_state_wrap .state_divide ul.user_list span.ico.offline::before {background-color:#747474;}
+/* // 상담사 상태 */
+</style>
+
+    <div class="dashboard_wrap">
+
+        <div class="dashboard_box">
+            <div class="dashboard_chat_wrap">
+                <div class="dashboard_chat">
+                    <div class="tit"><strong>실시간 상담</strong></div>
+                    <ul class="list">
+                        <li>
+                            <span class="color c_busy"></span>
+                            <span class="tit">배분 대기</span>
+                            <span class="count">3</span>
+                        </li>
+                        <li>
+                            <span class="color c_apricot"></span>
+                            <span class="tit">상담 대기</span>
+                            <span class="count">3</span>
+                        </li>
+                        <li>
+                            <span class="color c_online"></span>
+                            <span class="tit">상담중</span>
+                            <span class="count">3</span>
+                        </li>
+                        <li>
+                            <span class="color c_red"></span>
+                            <span class="tit">이탈</span>
+                            <span class="count">3</span>
+                        </li>
+                        <li>
+                            <span class="color c_lightblue"></span>
+                            <span class="tit">종료</span>
+                            <span class="count">3</span>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="total">
+                        <div>
+                            <span class="tit">평균 대기 시간</span>
+                            <span class="count">00:35</span>
+                        </div>
+                        <div>
+                            <span class="tit">평균 상담 시간</span>
+                            <span class="count">03:25</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- // dashboard_chat -->
+
+                <div class="dashboard_chat">
+                    <div class="tit"><strong>상담 처리 현황</strong></div>
+                    <ul class="list">
+                        <li>
+                            <span class="color c_dark"></span>
+                            <span class="tit">총 인입</span>
+                            <span class="count">35</span>
+                        </li>
+                        <li>
+                            <span class="color c_green"></span>
+                            <span class="tit">처리</span>
+                            <span class="count">25</span>
+                        </li>
+                        <li>
+                            <span class="color c_red"></span>
+                            <span class="tit">미처리</span>
+                            <span class="count">1</span>
+                        </li>
+                        <li>
+                            <span class="color c_lightblue"></span>
+                            <span class="tit">응답율</span>
+                            <span class="count">90%</span>
+                        </li>
+                        <li>
+                            <span class="color c_green"></span>
+                            <span class="tit">처리율</span>
+                            <span class="count">90%</span>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="total">
+                        <div>
+                            <span class="tit">상담사 평균 상담건수</span>
+                            <span class="count">5.5건</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- // dashboard_chat -->
+            </div>
+            <!-- // dashboard_chat_wrap -->
+        </div>
+        <!-- // dashboard_box -->
+
+        <div class="dashboard_box">
+            <div class="dashboard_state_wrap">
+                <div class="tit"><strong>상담사 상태</strong></div>
+                <div class="state_divide">
+                    <div class="item">
+                        <div class="online">
+                            <div class="state_tit_wrap">
+                                <span class="status-name">상담</span>
+                                <strong>
+                                    <span class="status-count online">5</span>
+                                    명
+                                </strong>
+                            </div>
+                            
+                            <div class="user_list_wrap">
+                                <div>
+                                    <span class="status-name">상담</span>
+                                    <strong class="status-count online">5</strong>
+                                </div>
+                                <ul class="user_list">
+                                    <li>
+                                        <span class="ico online">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico online">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico online">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico online">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico online">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico online">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico online">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico online">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico online">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico online">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+
+
+
+                    <div class="item">
+                        <div class="busy">
+                            <div class="state_tit_wrap">
+                                <span class="status-name">바쁨</span>
+                                <strong>
+                                    <span class="status-count busy">5</span>
+                                    명
+                                </strong>
+                            </div>
+                            
+                            <div class="user_list_wrap">
+                                <div>
+                                    <span class="status-name">바쁨</span>
+                                    <strong class="status-count busy">5</strong>
+                                </div>
+                                <ul class="user_list">
+                                    <li>
+                                        <span class="ico busy">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico busy">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico busy">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+
+
+
+                    <div class="item">
+                        <div class="busy">
+                            <div class="state_tit_wrap">
+                                <span class="status-name">숨김</span>
+                                <strong>
+                                    <span class="status-count offline">5</span>
+                                    명
+                                </strong>
+                            </div>
+                            
+                            <!-- <div class="user_list_wrap">
+                                <div>
+                                    <span class="status-name">숨김</span>
+                                    <strong class="status-count offline">5</strong>
+                                </div>
+                                <ul class="user_list">
+                                    <li>
+                                        <span class="ico offline">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico offline">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico offline">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico offline">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico offline">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico offline">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico offline">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico offline">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico offline">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                    <li>
+                                        <span class="ico offline">
+                                            <img src="https://devlifeplanet.enterprise.gitple.io/assets/img/app/profile/no-photo@2x.png" alt="">
+                                        </span>
+                                        <span class="name">김상담(12345678)</span>
+                                    </li>
+                                </ul>
+                            </div> -->
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- // dashboard_box -->
+
+        <div class="dashboard_box">
+            <div class="dashboard_order_list_wrap">
+                <div class="tit">
+                    <strong>봇 호출 현황</strong>
+                </div>
+                <div class="list_wrap">
+                    <div class="list-head">
+                        <span class="no">#</span>
+                        <span class="tit">봇 이름</span>
+                        <span class="count">호출 횟수</span>
+                    </div>
+                    <ol class="list">
+                        <li class="list-item">
+                            <span class="no">1</span>
+                            <span class="tit">FAQ봇</span>
+                            <span class="count">3,125</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">2</span>
+                            <span class="tit">기본서비스 안내</span>
+                            <span class="count">931</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">3</span>
+                            <span class="tit">상담예약</span>
+                            <span class="count">672</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">4</span>
+                            <span class="tit">메시지 처리</span>
+                            <span class="count">520</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">5</span>
+                            <span class="tit">상품안내</span>
+                            <span class="count">301</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">6</span>
+                            <span class="tit">보험료 납부</span>
+                            <span class="count">200</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">7</span>
+                            <span class="tit">보험금 신청</span>
+                            <span class="count">110</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">8</span>
+                            <span class="tit">보장분석 진단</span>
+                            <span class="count">92</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">9</span>
+                            <span class="tit">계약변경</span>
+                            <span class="count">40</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">10</span>
+                            <span class="tit">보험 해약</span>
+                            <span class="count">30</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- // dashboard_order_list_wrap -->
+        </div>
+        <!-- // dashboard_box -->
+
+        <div class="dashboard_box">
+            <div class="dashboard_order_list_wrap">
+                <div class="tit">
+                    <strong>FAQ 카테고리 선택 순위</strong>
+                </div>
+                <div class="list_wrap">
+                    <div class="list-head">
+                        <span class="no">#</span>
+                        <span class="tit">카테고리명</span>
+                        <span class="count">빈도</span>
+                    </div>
+                    <ol class="list">
+                        <li class="list-item">
+                            <span class="no">1</span>
+                            <span class="tit">상품</span>
+                            <span class="count">1,571</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">2</span>
+                            <span class="tit">암보험</span>
+                            <span class="count">1,028</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">3</span>
+                            <span class="tit">사망.상해보험</span>
+                            <span class="count">997</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">4</span>
+                            <span class="tit">입원 치료</span>
+                            <span class="count">510</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">5</span>
+                            <span class="tit">비갱신 암보험</span>
+                            <span class="count">310</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">6</span>
+                            <span class="tit">연금.저축</span>
+                            <span class="count">121</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">7</span>
+                            <span class="tit">어린이</span>
+                            <span class="count">84</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">8</span>
+                            <span class="tit">건강보험</span>
+                            <span class="count">25</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">9</span>
+                            <span class="tit">보험 상담</span>
+                            <span class="count">13</span>
+                        </li>
+                        <li class="list-item">
+                            <span class="no">10</span>
+                            <span class="tit">휴가시즌</span>
+                            <span class="count">5</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- // dashboard_order_list_wrap -->
+        </div>
+        <!-- // dashboard_box -->
+
+    </div>
+    <!-- // dashboard_wrap -->
+
+</body>
+</html>
