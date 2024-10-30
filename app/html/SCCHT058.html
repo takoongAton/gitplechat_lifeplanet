@@ -55,6 +55,30 @@ body {padding:64px 32px;}
 .user_info_input_wrap .user_info_input_footer .btn_submit span {color:#fff; font-size:16px; font-weight:bold; font-family:'Roboto';}
 .user_info_input_wrap .user_info_input_footer .btn_submit:disabled {opacity:0.5;}
 /* // SCCHT058 */
+
+
+/* 임시 팝업 (공통 사용 불가) */
+.layer.alert {}
+.layer.alert div.dim {position:fixed; top:0; right:0; bottom:0; left:0; background-color:rgba(0,0,0,0.3);}
+.layer.alert div.inner {box-sizing:border-box; position:fixed; top:50%; left:50%; width:360px; padding:20px; height:auto; border-radius:12px; background-color:#fff; transform:translate(-50%,-50%); box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+.layer.alert div.inner div.tit strong {display:block; font-size:18px;}
+.layer.alert div.inner ul li {position:relative; padding-left:16px;}
+.layer.alert div.inner ul li + li {margin-top:1em;}
+.layer.alert div.inner ul li::before {content:"-"; display:block; position:absolute; top:0; left:0; font-size:inherit; line-height:inherit; color:inherit;}
+.layer.alert div.inner ul li strong {display:block; font-size:16px; font-weight:bold;}
+.layer.alert div.inner ul li p {margin-top:0.25em; color:#333; font-size:14px;}
+.layer.alert div.inner p.txt {margin:1em 0; font-size:14px; color:#333; word-break:keep-all;}
+.layer.alert div.inner p.txt.em {position:relative; padding-left:16px;}
+.layer.alert div.inner p.txt.em span {display:inline-block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit;}
+.layer.alert div.inner .btn_close {display:inline-flex; justify-content:center; align-items:center; position:absolute; top:16px; right:16px; width:40px; height:40px; cursor:pointer;}
+.layer.alert div.inner .btn_close span {display:block; position:relative; width:30px; height:30px; color:transparent; overflow:hidden;}
+.layer.alert div.inner .btn_close span::before,
+.layer.alert div.inner .btn_close span::after {content:""; display:block; position:absolute; top:50%; left:50%; width:70%; height:1px; border-radius:1px; background-color:#000;}
+.layer.alert div.inner .btn_close span::before {transform:translate(-50%,-50%) rotate(45deg);}
+.layer.alert div.inner .btn_close span::after {transform:translate(-50%,-50%) rotate(-45deg);}
+/* // 임시 팝업 */
+
+/* // SCCHT058 */
 </style>
 
     <div class="user_info_input_wrap">
@@ -74,7 +98,7 @@ body {padding:64px 32px;}
                     </div>
                 </div>
                 <div class="item">
-                    <span class="tit">전화번호 끝 4자리</span>
+                    <span class="tit">전화번호</span>
                     <div>
                         <input type="text">
                     </div>
@@ -88,7 +112,7 @@ body {padding:64px 32px;}
                         </label>
                         <span class="txt">개인정보 제공 약관 동의<strong>(필수)</strong></span>
                     </div>
-                    <button type="button" class="ml-auto"><img src="../images/icon/icon_arrow_down.png" alt="화살표"></button>
+                    <button type="button" class="ml-auto btn_agree"><img src="../images/icon/icon_arrow_down.png" alt="화살표"></button>
                 </div>
                 <!-- // user_agree_chkbox -->
             </div>
@@ -104,7 +128,60 @@ body {padding:64px 32px;}
     </div>
     <!-- // user_info_input_wrap -->
 
-    
+
+    <div class="layer alert">
+        <div class="dim"></div>
+        <div class="inner">
+            <div class="tit"><strong>개인(신용)정보의 수집·이용 동의</strong></div>
+            <p class="txt">개인정보 수집·이용에 관한 사항입니다.</p>
+            <ul>
+                <li>
+                    <strong>수집·이용 목적</strong>
+                    <p>본인확인 및 고객 문의 내용에 대한 답변</p>
+                </li>
+                <li>
+                    <strong>수집·이용 항목</strong>
+                    <p>일반 개인정보: 이름, 주민등록번호, 휴대전화번호</p>
+                </li>
+                <li>
+                    <strong>보유 및 이용기간</strong>
+                    <p>수집일로부터 이용목적 달성시까지</p>
+                </li>
+            </ul>
+            <p class="txt em">
+                <span>※</span>
+                고객님께서는 상기 동의를 거부할 수 있습니다. 다만 이에 동의하지 않을 경우에는 관련 서비스 제공이 불가능합니다.
+            </p>
+            <button type="button" class="btn_close"><span>닫기</span></button>
+        </div>
+    </div>
+
+
+    <script>
+    /* test */
+    let btn_close = document.querySelector("button.btn_close");
+    btn_close.addEventListener("click", () => {
+        document.querySelector("div.layer.alert").style.display = "none";
+    })
+
+    let btn_agree = document.querySelector("button.btn_agree");
+    btn_agree.addEventListener("click", () => {
+        document.querySelector("div.layer.alert").style.display = "block";
+        document.querySelector(".user_agree_chkbox input").checked = true;
+        document.querySelector(".btn_submit").disabled = false;
+    })
+
+    let chk_sam = document.querySelector(".user_agree_chkbox input");
+    chk_sam.addEventListener("change", () => {
+        if(chk_sam.checked == true) {
+            document.querySelector(".btn_submit").disabled = false;
+        } else {
+            document.querySelector(".btn_submit").disabled = true;
+        }
+    })
+    /* // test */
+    </script>
+
 
 </body>
 </html>
