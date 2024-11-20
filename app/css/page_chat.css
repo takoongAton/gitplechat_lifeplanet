@@ -1,0 +1,25 @@
+.chat-container {box-sizing:border-box; display:flex; flex-direction:row; justify-content:space-evenly; margin-right:0 !important; margin-left:0 !important;}
+
+.chat-container > .chat-rooms-panel_wrap,
+.chat-container > .chat-message-panel_wrap,
+.chat-container > .chat-user-panel_wrap {box-sizing:border-box; transition:all 0.2s ease;}
+
+.chat-container > .chat-rooms-panel_wrap {flex:none !important; width:300px !important; min-width:300px !important; max-width:300px !important; margin-right:15px;}
+.chat-container > .chat-message-panel_wrap {flex:1 !important; width:auto !important; min-width:450px !important; max-width:none !important; margin-right:15px;}
+.chat-container > .chat-user-panel_wrap {flex:none !important; width:400px !important; min-width:400px !important; max-width:400px !important;}
+
+.chat-container.page_extend > .chat-rooms-panel_wrap {display:none;}
+.chat-container.page_extend > .chat-message-panel_wrap {flex:none !important; width:500px !important; min-width:500px !important; max-width:500px !important;}
+.chat-container.page_extend > .chat-user-panel_wrap {flex:1 !important; width:auto !important; min-width:none !important; max-width:none !important;}
+
+@media screen and (max-width: 1024px){
+	.chat-container > .chat-rooms-panel_wrap,
+	.chat-container > .chat-user-panel_wrap {flex:none !important; width:300px !important; min-width:300px !important; max-width:300px !important;}
+
+	.chat-container.page_extend > .chat-message-panel_wrap {flex:none !important; width:450px !important; min-width:450px !important; max-width:450px !important;}
+	.chat-container.page_extend > .chat-user-panel_wrap {flex:1 !important; width:auto !important; min-width:none !important; max-width:none !important;}
+}
+
+@media screen and (min-width: 1440px){
+	.chat-container > .chat-rooms-panel_wrap {width:400px !important; min-width:400px !important; max-width:400px !important;}
+}

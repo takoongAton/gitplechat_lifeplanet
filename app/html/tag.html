@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>gitplechat_lifeplanet</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!-- 파비콘 -->
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico"> -->
+	<!-- <link rel="stylesheet" href="../css/gktplechat_lifeplanet.css"> -->
+    <!-- <link rel="stylesheet" href="https://devlifeplanet.enterprise.gitple.io/styles.a37ae2ce673b085575e7.css"> -->
+    
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script> -->
+</head>
+<body>
+
+<style>
+
+* {box-sizing:border-box; margin:0; padding:0; border:0; background:none; list-style:none;}
+body {padding:64px 32px;}
+.tag_txt {display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden;}
+</style>
+
+
+
+
+
+<style>
+    
+/* .category-container .tree li span.fancytree-node:not(.fancytree-has-children) span.fancytree-title {padding-left:10px;} */
+/* .category-container .tree li span.fancytree-node .fancytree-title {display:inline-block; line-height:22px;} */
+/* .category-container .tree li span.fancytree-node .fancytree-title {display:inline-block; line-height:22px; word-break:break-all;} */
+
+/* 카테고리 관리 */
+/* 카테고리 관리 스크롤바 위치 수정. */
+.category-container .fancytree-container {/* overflow-y:none; */} /* 기존 overflow-y 내용 주석 처리 */
+.category-container .tree>ul {padding-right:10px;} /* 값 추가 */
+.category-container .tree li {padding:5px 0 5px 5px;} /* 값 수정 */
+.category-container .tree li span {padding:0;} /* 값 수정 padding:3px 8px -> 0px */
+.category-container .tree li span.fancytree-node {display:inline-flex; gap:0 5px; padding:4px 8px 4px 5px; border-radius:8px; border-color:#d3d3d3;} /* css 신규 추가 */
+.category-container .tree li span.fancytree-node.fancytree-node.fancytree-active {position:relative; z-index:1; background-color:#339af0; border-color:#339af0;} /* css 신규 추가 */
+.category-container .tree li span.fancytree-node:not(.fancytree-has-children) {padding-left:10px;} /* css 신규 추가 */
+.category-container .tree li span.fancytree-node:not(.fancytree-has-children) span.fancytree-expander {display:none;} /* css 신규 추가 */
+
+.category-container .tree li span.fancytree-expander {width:22px; min-width:22px; height:22px; border-radius:5px; background-color:rgba(0,0,0,0.06); line-height:19px; text-align:center; cursor:pointer;} /* css 신규 추가 */
+
+.category-container .fancytree-node .fancytree-title {display:inline-block; line-height:22px; word-break:break-all;} /* 기존 값 수정 및 추가. */
+
+/* 활성화 버튼 컬러, 텍스트 수정 */
+.category-container .tree li .fancytree-active span {color:#fff;} /* css 신규 추가 */
+
+/* 카테고리 세로 라인 위치 수정 */
+.category-container .tree li:before {left:-5px; border-left:1px solid #ddd;} /* 기존 값 수정 */
+
+/* 카테고리 가로 라인 위치, 크기 수정 */
+.category-container .tree li:after {left:-5px; width:10px; border-top:1px solid #ddd;} /* 기존 값 수정 */
+
+/* 카테고리 라인 영역 수정 */
+.category-container .tree ul ul {padding-left:19px;} /* 기존 값 수정 */
+</style>
+
+
+<div _ngcontent-suv-c152="" class="ba-tag"><!---->
+    <div _ngcontent-suv-c152="" class="user-tag d-flex align-items-center ng-star-inserted" style="background-color: rgb(233, 150, 149); color: rgb(255, 255, 255);">
+        <div _ngcontent-suv-c152="" class="tag_txt">
+            길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게
+        </div>
+        <a _ngcontent-suv-c152="" href="" class="tag-delete ng-star-inserted">
+            <i _ngcontent-suv-c152="" class="ion-close"></i>
+        </a>
+    </div>
+</div>
+
+    <script>
+    /* test */
+    let btn_close = document.querySelector("button.btn_close");
+    btn_close.addEventListener("click", () => {
+        document.querySelector("div.layer.alert").style.display = "none";
+    })
+
+    let btn_agree = document.querySelector("button.btn_agree");
+    btn_agree.addEventListener("click", () => {
+        document.querySelector("div.layer.alert").style.display = "block";
+        document.querySelector(".user_agree_chkbox input").checked = true;
+        document.querySelector(".btn_submit").disabled = false;
+    })
+
+    let chk_sam = document.querySelector(".user_agree_chkbox input");
+    chk_sam.addEventListener("change", () => {
+        if(chk_sam.checked == true) {
+            document.querySelector(".btn_submit").disabled = false;
+        } else {
+            document.querySelector(".btn_submit").disabled = true;
+        }
+    })
+    /* // test */
+    </script>
+
+
+</body>
+</html>

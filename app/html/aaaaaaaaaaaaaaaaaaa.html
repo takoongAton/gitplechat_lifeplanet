@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>gitplechat_lifeplanet</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!-- 파비콘 -->
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico"> -->
+	<link rel="stylesheet" href="../css/gktplechat_lifeplanet.css">
+    <!-- <link rel="stylesheet" href="https://devlifeplanet.enterprise.gitple.io/styles.a37ae2ce673b085575e7.css"> -->
+    
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script> -->
+</head>
+<body>
+
+<style>
+* {box-sizing:border-box; margin:0; padding:0; border:0; background:none; list-style:none;}
+body {padding:64px 32px;}
+</style>
+
+<style>
+/* SCCHT043 */
+.group_change {display:flex; justify-content:flex-end; align-items:center; gap:4px; height:20px; padding:0 6px;}
+.group_change div {display:flex; align-items:center; gap:0 2px; line-height:1em;}
+.group_change div span {display:inline-block; align-items:center; font-weight:500;}
+.group_change div + div {}
+.group_change div + div::before {content:""; display:inline-block; width:16px; height:16px; background:url('../images/arrow-forward_1.png') no-repeat left top / contain;}
+.group_change div span.name {height:16px; color:#343A40; font-size:14px; line-height:17px;}
+.group_change div span.group_name {height:13px; padding:0 5px; border-radius:7px; background-color:#495057; color:#fff; font-size:10px; line-height:14px;}
+/* // SCCHT043 */
+</style>
+
+<div class="group_change py-1">
+    <div class="before">
+        <span class="name">김상담</span>
+        <span class="group_name">A그룹</span>
+    </div>
+    <div class="after">
+        <span class="name">홍길동</span>
+        <span class="group_name">B그룹B그룹</span>
+    </div>
+</div>
+
+<div class="group_change py-1">
+    <div class="before">
+        <span class="name">봇 : FAQ Pro</span>
+        <!-- <span class="group_name">A그룹</span> -->
+    </div>
+    <div class="after">
+        <span class="name">홍길동</span>
+        <span class="group_name">B그룹B그룹</span>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+비즈봇아이콘 시안, 시안적용
+
+1. 3page
+<span class="input-btn pull-right ng-star-inserted"><!---->
+
+<button class="btn btn-link btn-header" type="button" id="임의설정">
+<span>
+   <i class="icon-memo__modify">
+      <img src="https://takoongaton.github.io/gitplechat_lifeplanet/app/images/icon/ico_coaching_chat_01.png" style="vertical-align: text-bottom; width: 21px;">
+   </i>
+   <!---->
+</span>
+</button>
+<!---->
+
+</span>
+
+

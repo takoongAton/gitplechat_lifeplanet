@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="ico_coaching_note_02" transform="translate(-1129 -568)">
+    <rect id="bg" width="24" height="24" transform="translate(1129 568)" fill="none"/>
+    <path id="path1" d="M10.746,16.162h7v1.75h-7Zm0-3.5h7v1.75h-7ZM16,3.913H9a1.756,1.756,0,0,0-1.75,1.75v14a1.747,1.747,0,0,0,1.741,1.75H19.5a1.755,1.755,0,0,0,1.75-1.75V9.163Zm3.5,15.749H9v-14h6.125v4.375H19.5Z" transform="translate(1129 568)" fill="red"/>
+    <path id="path2" d="M5.351,2.045h-2.4l.291,8.228H5.351l.291-8.228Z" transform="translate(1129 568)" fill="red"/>
+    <rect id="quad1" width="2.105" height="2.105" transform="translate(1132.246 579.498)" fill="red"/>
+  </g>
+</svg>
